@@ -1,0 +1,41 @@
+[build-system]
+requires = [
+    "setuptools>=42",
+    "wheel",
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ECCamera"
+version = "0.1.0"
+description = ""
+authors = [
+    { name = "boybook", email = "fangyizhou1997@qq.com" },
+]
+readme = "README.md"
+requires-python = ">=3.6"
+dependencies = []
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+
+[project.license]
+text = "MIT"
+
+[tool.mcpywrap]
+use_3to2 = false
+project_type = "addon"
+target_dir = "./build"
+
+[tool.setuptools.package-dir]
+"" = "behavior_pack"
+
+[tool.setuptools.packages.find]
+where = [
+    "behavior_pack",
+]
+include = [
+    "*",
+]

@@ -1,0 +1,24 @@
+{
+    "main": {
+        "type": "screen",
+        "controls": [
+            {
+                "ticker_helper": {
+                    "font_type": "default",
+                    "layer": 1,
+                    "text_alignment": "center",
+                    "type": "label",
+                    "text": "#text",
+                    "bindings": [
+                        {
+                            "binding_name": "#tick_refresh_auxiliary",
+                            "binding_condition": "always",
+                            "binding_name_override": "#text"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "namespace": "camera_helper"
+}
