@@ -6,11 +6,13 @@
 
 ECCamera是一个为《我的世界》中国版 设计的高级相机控制模组，允许开发者和内容创作者创建电影级的相机动画和特效。（就像是EC的圣符传说那样）
 
-该模组支持直接导入在 Blockbench 中通过插件 `Cameras`，在动画模式中，创建的可视化创建电影级运镜。
+该模组支持直接导入在 Blockbench 中通过插件 `Cameras`，创建的 camera 路径动画运镜。
 
 完整支持Blockbench的多种插值方式（贝塞尔曲线、线性、阶梯和Catmull-Rom样条），以及丰富的后期处理效果，如景深、晕影和颜色调整等。
 
-![preview](preview.gif)
+![preview](./preview.gif)
+
+![blockbench](./blockbench.png)
 
 ## 主要功能
 
