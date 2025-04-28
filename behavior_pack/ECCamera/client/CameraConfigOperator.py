@@ -11,6 +11,7 @@ compPostProcess = clientApi.GetEngineCompFactory().CreatePostProcess(clientApi.G
 compOperation = clientApi.GetEngineCompFactory().CreateOperation(clientApi.GetLevelId())
 compCamera = clientApi.GetEngineCompFactory().CreateCamera(clientApi.GetLevelId())
 compGame = clientApi.GetEngineCompFactory().CreateGame(clientApi.GetLevelId())
+compPlayerView = clientApi.GetEngineCompFactory().CreatePlayerView(clientApi.GetLevelId())
 
 
 class CameraConfigOperator(object):
@@ -20,15 +21,20 @@ class CameraConfigOperator(object):
         
         # 保存原始设置以便恢复
         self._originalFov = compCamera.GetFov()
+        self._originalPerspective = compPlayerView.GetPerspective()
 
     def apply(self):
         """应用相机配置"""
         try:
             # 保存原始设置
             self._originalFov = compCamera.GetFov()
+            self._originalPerspective = compPlayerView.GetPerspective()
+
+            # 设置第三人称
+            compPlayerView.SetPerspective(1)
 
             # 锁定移动和旋转
-            if self.config.get("lockMovement", False):
+            if self.config.get("lockMovemest", False):
                 compOperation.SetMoveLock(True)
             if self.config.get("lockRotation", False):
                 compOperation.SetCanDrag(False)
@@ -73,6 +79,9 @@ class CameraConfigOperator(object):
     def restore(self):
         """取消应用相机配置，恢复默认设置"""
         try:
+            # 设置人称
+            compPlayerView.SetPerspective(self._originalPerspective)
+
             # 只有在配置中设置了锁定移动才解锁
             if self.config.get("lockMovement", False):
                 compOperation.SetMoveLock(False)

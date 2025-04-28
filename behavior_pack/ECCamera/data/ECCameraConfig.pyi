@@ -44,3 +44,5 @@ class ECCameraConfig(TypedDict):
     adjustment: Optional[ColorAdjustment]
     fov: Optional[float]
     loop: Optional[bool]
+
+DEFAULT_CAMERA_CONFIG: ECCameraConfig
