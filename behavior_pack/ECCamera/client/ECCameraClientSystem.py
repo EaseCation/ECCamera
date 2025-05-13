@@ -23,7 +23,6 @@ class ECCameraClientSystem(ClientSystem):
 
     def onFrameTick(self):
         if self.cameraSession:
-            print("[ECCamera] onFrameTick")
             self.cameraSession.onFrameTick()
 
     def onUiInitFinished(self, args):

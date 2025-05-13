@@ -43,10 +43,16 @@ class CameraSession(object):
             positionData = interpolationData['position'] if 'position' in interpolationData else {'x': 0, 'y': 0, 'z': 0}
             rotationData = interpolationData['rotation'] if 'rotation' in interpolationData else {'x': 0, 'y': 0, 'z': 0}
             fovData = interpolationData['fov'] if 'fov' in interpolationData else None
-            position = (-positionData['x'] / 16.0, positionData['y'] / 16.0, positionData['z'] / 16.0)
-            rotation = (-rotationData['y'], -(rotationData['x'] - 180), rotationData['z'])
+            position = self.transformPosition(positionData)
+            rotation = self.transformRotation(rotationData)
             fov = fovData['x'] if fovData else None
             self.applyCamera(position, rotation, fov)
+
+    def transformPosition(self, position):
+        return (-position['x'] / 16.0, position['y'] / 16.0, position['z'] / 16.0)
+    
+    def transformRotation(self, rotation):
+        return (-rotation['y'], -(rotation['x'] - 180), rotation['z'])
 
     def applyCamera(self, position, rotation, fov):
         comp.LockCamera(
