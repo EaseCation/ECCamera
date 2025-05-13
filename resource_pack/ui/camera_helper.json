@@ -3,7 +3,7 @@
         "type": "screen",
         "controls": [
             {
-                "ticker_helper": {
+                "camera_ticker_helper": {
                     "font_type": "default",
                     "layer": 1,
                     "text_alignment": "center",
@@ -11,7 +11,7 @@
                     "text": "#text",
                     "bindings": [
                         {
-                            "binding_name": "#tick_refresh_auxiliary",
+                            "binding_name": "#camera_tick_refresh_auxiliary",
                             "binding_condition": "always",
                             "binding_name_override": "#text"
                         }

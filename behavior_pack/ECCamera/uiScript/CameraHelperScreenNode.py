@@ -19,6 +19,6 @@ class CameraHelperScreenNode(ScreenNode):
 		"""
 		pass
 
-	@ViewBinder.binding(ViewBinder.BF_BindString, '#tick_refresh_auxiliary')
-	def tick_refresh_auxiliary(self):
+	@ViewBinder.binding(ViewBinder.BF_BindString, '#camera_tick_refresh_auxiliary')
+	def camera_tick_refresh_auxiliary(self):
 		self.system.onFrameTick()
