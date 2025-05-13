@@ -4,7 +4,7 @@
         "name": "ECCamera Behaviors",
         "description": "ECCamera - Behaviors",
         "uuid": "9f1b42c9-f2e1-495a-a4fd-0f9aefdb14ed",
-        "version": [1, 0, 0],
+        "version": [1, 0, 1],
         "min_engine_version": [
             1,
             19,
@@ -15,7 +15,7 @@
         {
             "type": "data",
             "uuid": "cb5b05fd-398d-4e0c-987a-f7a6451e2cfd",
-            "version": [1, 0, 0]
+            "version": [1, 0, 1]
         }
     ]
 }

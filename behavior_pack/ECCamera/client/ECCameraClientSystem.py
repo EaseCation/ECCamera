@@ -23,6 +23,7 @@ class ECCameraClientSystem(ClientSystem):
 
     def onFrameTick(self):
         if self.cameraSession:
+            print("[ECCamera] onFrameTick")
             self.cameraSession.onFrameTick()
 
     def onUiInitFinished(self, args):
@@ -35,10 +36,12 @@ class ECCameraClientSystem(ClientSystem):
         origionPos = tuple(args['originPos'])
         length = args['length']
         keyframes = json.loads(args['keyframes'])
+        print("[ECCamera] Start route with config: {}, origionPos: {}, length: {}, keyframes: {}".format(config, origionPos, length, keyframes))
         self.cameraSession = CameraSession(config, origionPos, length, keyframes)
         self.cameraSession.start()
 
     def requestStopRoute(self, args):
+        print("[ECCamera] Stop route")
         if self.cameraSession:
             self.cameraSession.stop()
             self.cameraSession = None
