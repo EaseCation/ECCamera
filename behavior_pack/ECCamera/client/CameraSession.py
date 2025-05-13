@@ -50,9 +50,9 @@ class CameraSession(object):
 
     def transformPosition(self, position):
         return (-position['x'] / 16.0, position['y'] / 16.0, position['z'] / 16.0)
-    
+        
     def transformRotation(self, rotation):
-        return (-rotation['y'], -(rotation['x'] - 180), rotation['z'])
+        return (rotation['x'], rotation['y'] - 180, rotation['z'])
 
     def applyCamera(self, position, rotation, fov):
         comp.LockCamera(
