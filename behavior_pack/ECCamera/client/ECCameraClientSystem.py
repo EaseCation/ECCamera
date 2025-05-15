@@ -36,6 +36,9 @@ class ECCameraClientSystem(ClientSystem):
         length = args['length']
         keyframes = json.loads(args['keyframes'])
         print("[ECCamera] Start route with config: {}, origionPos: {}, length: {}, keyframes: {}".format(config, origionPos, length, keyframes))
+        if self.cameraSession:
+            self.cameraSession.stop()
+            self.cameraSession = None
         self.cameraSession = CameraSession(config, origionPos, length, keyframes)
         self.cameraSession.start()
 
