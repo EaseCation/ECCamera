@@ -55,10 +55,16 @@ class CameraSession(object):
         return (rotation['x'], rotation['y'] - 180, rotation['z'])
 
     def applyCamera(self, position, rotation, fov):
-        comp.LockCamera(
-            (self.originPos[0] + position[0], self.originPos[1] + position[1], self.originPos[2] + position[2]),
-            (rotation[0], rotation[1])
-        )
+        try:
+            comp.LockCamera(
+                (self.originPos[0] + position[0], self.originPos[1] + position[1], self.originPos[2] + position[2]),
+                (-rotation[0], rotation[1], rotation[2])
+            )
+        except:
+            comp.LockCamera(
+                (self.originPos[0] + position[0], self.originPos[1] + position[1], self.originPos[2] + position[2]),
+                (rotation[0], rotation[1])
+            )
         # comp.DepartCamera()
         # comp.SetCameraPos(position)
         # comp.SetCameraRotation(rotation)
