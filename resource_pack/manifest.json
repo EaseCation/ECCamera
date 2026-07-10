@@ -4,7 +4,7 @@
         "name": "ECCamera Resources",
         "description": "ECCamera - Resources",
         "uuid": "d2dcc447-c835-49f5-98d9-7600d90662c1",
-        "version": [1, 0, 2],
+        "version": [1, 0, 3],
         "min_engine_version": [
             1,
             19,
